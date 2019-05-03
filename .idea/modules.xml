@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/junit-retry-rule.iml" filepath="$PROJECT_DIR$/.idea/modules/junit-retry-rule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junit-retry-rule_main.iml" filepath="$PROJECT_DIR$/.idea/modules/junit-retry-rule_main.iml" group="junit-retry-rule" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/junit-retry-rule_test.iml" filepath="$PROJECT_DIR$/.idea/modules/junit-retry-rule_test.iml" group="junit-retry-rule" />
     </modules>
   </component>
 </project>
