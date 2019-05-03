@@ -41,6 +41,10 @@ public final class RetryRule implements TestRule {
             base.evaluate();
             return;
           } catch (Throwable t) {
+            // ignore skipped tests
+            if (t instanceof org.junit.AssumptionViolatedException ) {
+              throw t;
+            }
             errors[currentAttempt] = t;
             currentAttempt++;
             Thread.sleep(timeout);
@@ -56,7 +60,7 @@ public final class RetryRule implements TestRule {
    * Throwable encountered when running the test-case for the first time, {@code errors()[1]} corresponds to the
    * Throwable encountered when running the test-case for the second time, and so on.
    */
-  @NotNull public Throwable[] errors() {
+  @NotNull private Throwable[] errors() {
     return Arrays.copyOfRange(errors, 0, currentAttempt);
   }
 

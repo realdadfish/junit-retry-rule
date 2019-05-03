@@ -9,12 +9,12 @@ import java.io.StringWriter;
  * An exception thrown to signal that a retry operation (executed via {@link RetryRule}) has retried more than the
  * allowed number of times, and has still failed.
  */
-public final class RetryException extends RuntimeException {
+final class RetryException extends RuntimeException {
 
   /**
    * @param errors the errors for each attempt at running this test-case
    */
-  @NotNull public static RetryException from(@NotNull Throwable[] errors) {
+  @NotNull static RetryException from(@NotNull Throwable[] errors) {
     final StringBuilder msg = new StringBuilder("Invoked methods still failed after " + errors.length + " attempts.");
     for (int i = 0; i < errors.length; i++) {
       final Throwable error = errors[i];
@@ -28,7 +28,6 @@ public final class RetryException extends RuntimeException {
   private RetryException(@NotNull String message) {
     super(message);
   }
-
 
   @NotNull private static String stackTraceAsString(@NotNull Throwable t) {
     final StringWriter errors = new StringWriter();
